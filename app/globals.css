@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #FFFFFF;
+    --foreground: #0B1220;
+    --primary: #0A63D8;
+    --primary-foreground: #FFFFFF;
+    --secondary: #0F1724;
+    --muted: #6B7280;
+    --muted-foreground: #6B7280;
+    --accent: #FF6B5C;
+    --border: #E6E9EE;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --shadow-sm: 0 1px 3px rgba(11,22,50,0.06);
+    --shadow-md: 0 8px 24px rgba(11,22,50,0.08);
+    --shadow-lg: 0 24px 48px rgba(11,22,50,0.12);
+    --blur-amount: 12px;
+    --transition-duration: 320ms;
+    --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html, body, #__next {
+    height: 100%;
+    background: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r bg-clip-text text-transparent;
+  }
+
+  .glass {
+    @apply bg-white/60 backdrop-blur-lg border border-white/30;
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 40px -10px var(--primary);
+  }
+}
+
+/* small helpers */
+.header-glass {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.card-glass {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-gradient {
+  background-image: linear-gradient(90deg, #0A63D8 0%, #6DD3FF 50%, #FF6B5C 100%);
+}
+
+.hero-gradient-mesh {
+  background: radial-gradient(600px 400px at 10% 10%, rgba(10,99,216,0.08), transparent 8%),
+              radial-gradient(500px 300px at 90% 80%, rgba(255,107,92,0.06), transparent 10%),
+              linear-gradient(180deg, rgba(13,24,36,0.02), transparent 40%);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 24px 48px rgba(10,99,216,0.08);
+}
+
+.image-mask {
+  border-radius: 20px;
+  overflow: hidden;
+}
